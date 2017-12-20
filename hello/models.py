@@ -1,5 +1,4 @@
 from django.db import models
-from jsonfield import JSONField
 
 
 class Greeting(models.Model):
@@ -14,7 +13,7 @@ class Types(models.Model):
 
 
 class Animal(models.Model):
-    name = JSONField(blank=True, null=True)
+    name = models.TextField(blank=True, null=True)
     birthday = models.TextField(blank=True, null=True)
     type = models.ForeignKey('Types', related_name='type_of_animal', on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
